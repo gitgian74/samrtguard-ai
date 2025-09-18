@@ -11,7 +11,7 @@ from src.routes.cameras import cameras_bp
 from src.routes.alarms import alarms_bp
 from src.routes.dashboard import dashboard_bp
 from src.routes.super_admin import super_admin_bp
-from src.routes.viam_routes import viam_bp
+# from src.routes.viam_routes import viam_bp  # Disabled for deployment
 from src.services.appwrite_service import AppwriteService
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
@@ -35,7 +35,7 @@ app.register_blueprint(cameras_bp, url_prefix='/api/cameras')
 app.register_blueprint(alarms_bp, url_prefix='/api/alarms')
 app.register_blueprint(dashboard_bp, url_prefix='/api/dashboard')
 app.register_blueprint(super_admin_bp)
-app.register_blueprint(viam_bp, url_prefix='/api/viam')
+# app.register_blueprint(viam_bp, url_prefix='/api/viam')  # Disabled for deployment
 
 # Local SQLite database for caching and offline functionality
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
